@@ -1,0 +1,7 @@
+FROM jenkinsci/jenkins
+
+MAINTAINER modified
+
+ENV JENKINS_OPTS --httpPort=8081
+EXPOSE 8081:8081
+EXPOSE 50000:50000

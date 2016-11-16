@@ -1,0 +1,20 @@
+www-data:
+    build: ./www-data
+
+php-fpm:
+    build: ./php-fpm_modified
+    expose:
+        - 9000
+    volumes_from:
+        - www-data
+
+nginx_app:
+    build: ./nginx_modified
+    expose:
+        - 80
+    links:
+        - php-fpm
+    volumes_from:
+        - www-data
+    ports:
+        - "10080:80"
